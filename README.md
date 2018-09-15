@@ -13,3 +13,5 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille. Jotta ilmoittau
 * Varauksen peruutus yrityksen toimesta, jos maksua ei ole maksettu
 * Varauksen peruutus asiakkaan toimesta
 * Kurssin peruutus
+
+[Ohjelma Herokussa](https://kurssitarjonta.herokuapp.com/)
