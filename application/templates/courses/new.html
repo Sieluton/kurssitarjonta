@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('courses_create') }}">
+  <input type="text" name="name"/>
+    <textarea rows="4" cols="50" name="description"></textarea>
+  <input type="submit" value="Add a new course"/>
+</form>
+{% endblock %}
