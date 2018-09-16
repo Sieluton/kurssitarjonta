@@ -10,7 +10,7 @@ def courses_index():
 def courses_form():
     return render_template("courses/new.html")
   
-@app.route("/courses/<course_id>/edit/")
+@app.route("/courses/<course_id>/edit/", methods=["POST"])
 def courses_edit_form(course_id):
     return render_template("courses/edit.html", course = Course.query.get(course_id))
 
