@@ -14,4 +14,8 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille. Jotta ilmoittau
 * Varauksen peruutus asiakkaan toimesta
 * Kurssin peruutus
 
+### Dokumentaatio:
+* [Käyttötarinat](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/user%20stories.md)
+* [Tietokantakaavion hahmotelma](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/tietokantakaavio.png)
+
 [Ohjelma Herokussa](https://kurssitarjonta.herokuapp.com/)
