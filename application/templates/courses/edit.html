@@ -2,8 +2,8 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('courses_edit') }}">
-  <input type="text" name="name" value="{{ course.name }}"/>
+    <input type="text" name="name" value="{{ course.name }}"/>
     <textarea rows="4" cols="50" name="description">{{ course.description }}</textarea>
-  <input type="submit" value="Edit course"/>
+    <input type="submit" value="Edit course"/>
 </form>
 {% endblock %}
