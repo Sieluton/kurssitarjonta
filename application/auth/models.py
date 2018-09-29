@@ -15,10 +15,8 @@ class User(db.Model):
     password = db.Column(db.String(144), nullable=False)
     courses = db.relationship("Course", backref='account', lazy=True)
 
-    def __init__(self, name, username, password):
+    def __init__(self, name):
         self.name = name
-        self.username = username
-        self.password = password
 
     def get_id(self):
         return self.id
