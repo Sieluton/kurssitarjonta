@@ -2,8 +2,15 @@ from flask import Flask
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///courses.db"
-app.config["SQLALCHEMY_ECHO"] = True
+
+import os
+
+if os.environ.get("HEROKU"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///course.db"
+    app.config["SQLALCHEMY_ECHO"] = True
+
 
 db = SQLAlchemy(app)
 
@@ -15,6 +22,8 @@ from application.courses import views
 from application.auth import models
 from application.auth import views
 
+
+# login
 from application.auth.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
@@ -32,4 +41,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-db.create_all()
+try:
+    db.create_all()
+except:
+    pass
