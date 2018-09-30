@@ -1,5 +1,5 @@
 from application import app, db
-from flask import redirect, render_template, request, url_for
+from flask import redirect, render_template, request, url_for, flash
 from flask_login import login_required, current_user
 from application.courses.models import Course
 from application.courses.forms import CourseForm
@@ -54,4 +54,16 @@ def courses_edit(course_id):
 
     db.session().commit()
 
+    return redirect(url_for("courses_index"))
+
+
+@app.route("/reservation/<course_id>", methods=["POST"])
+@login_required
+def courses_reservation(course_id):
+    c = Course.query.get(course_id)
+    u = current_user
+    c.accounts.append(u)
+    db.session.add(c)
+    db.session.commit()
+    flash('Reservation made')
     return redirect(url_for("courses_index"))

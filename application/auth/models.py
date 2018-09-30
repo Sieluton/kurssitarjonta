@@ -10,7 +10,7 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    courses = db.relationship("Course", backref='account', lazy=True)
+    courses = db.relationship("Course", secondary="reservations")
 
     def __init__(self, name):
         self.name = name

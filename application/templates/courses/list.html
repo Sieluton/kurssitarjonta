@@ -1,22 +1,29 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Course</th>
-      <th>Reservations</th>
-      <th></th>
-    </tr>
-    {% for course in courses %}
-    <tr>
-      <td>{{ course.name }}</td>
-      <td>{{ course.reservations }}</td>
-      <td>
-	<form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
-	  <input type="submit" value="Edit course"/>
-	</form>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Reservations</th>
+            <th></th>
+        </tr>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td>{{ course.find_course_reservation_total(course.id) }}</td>
+                {% if current_user.is_authenticated %}
+                    <td>
+                        <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
+                            <input type="submit" value="Make reservation"/>
+                        </form>
+                    </td>
+                {% endif %}
+                <td>
+                    <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
+                        <input type="submit" value="Edit course"/>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

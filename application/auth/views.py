@@ -31,7 +31,7 @@ def auth_logout():
 
 @app.route("/auth/signup", methods=["GET", "POST"])
 def auth_signup():
-    if not current_user:
+    if current_user.is_authenticated:
         return redirect(url_for("index"))
 
     if request.method == "GET":
