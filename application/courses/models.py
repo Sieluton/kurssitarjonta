@@ -16,10 +16,23 @@ class Course(Base):
     def find_course_reservation_total(course_id):
         stmt = text("SELECT COUNT(course_id)"
                     " FROM reservations"
-                    " WHERE (course_id) = :course_id").params(course_id=course_id)
+                    " WHERE course_id = :course_id").params(course_id=course_id)
         res = db.engine.execute(stmt)
         result = 0
         for row in res:
             result = row[0]
+
+        return result
+
+    @staticmethod
+    def course_reservation_name_list(course_id):
+        stmt = text("SELECT account.name FROM account "
+                    "INNER JOIN reservations ON reservations.account_id = account.id "
+                    "WHERE reservations.course_id = :course_id GROUP BY account.name").params(course_id=course_id)
+        res = db.engine.execute(stmt)
+
+        result = []
+        for row in res:
+            result.append({"name":row[0]})
 
         return result

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <h2 class="font-weight-bold">{{ course.name }}</h2>
+  <p class="font-weight-bold">Description</p>
+  <p class="font-weight-normal">{{ course.description }}</p>
+  <p>Number of reservations: {{ course.find_course_reservation_total(course.id) }}</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-auto">
+        {% if course.course_reservation_name_list(course.id) %}
+          <p class="font-weight-bold">List of reservations</p>
+          <ul class="list-group">
+            {% for name in course.course_reservation_name_list(course.id) %}
+              <li class="list-group-item">{{ name.name }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      {% if current_user.is_authenticated %}
+        <div class="col">
+          <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
+            <input class="btn btn-primary" type="submit" value="Make reservation"/>
+          </form>
+        </div>
+      {% endif %}
+      <div class="col">
+        <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
+          <input class="btn btn-primary" type="submit" value="Edit course"/>
+        </form>
+      </div>
+      <div class="col">
+        <form method="POST" action="{{ url_for('courses_delete', course_id=course.id) }}">
+          <input class="btn btn-danger" type="submit" value="Delete course"/>
+        </form>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

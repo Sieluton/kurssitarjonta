@@ -32,19 +32,20 @@
       {% endif %}
     </div>
   </div>
+</nav>
 
+<main role="main" class="container">
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul class=flashes>
         {% for message in messages %}
-          <li>{{ message }}</li>
+          <div class="alert alert-primary" role="alert">
+            <li>{{ message }}</li>
+          </div>
         {% endfor %}
       </ul>
     {% endif %}
   {% endwith %}
-</nav>
-
-<main role="main" class="container">
   {% block body %}
     <p>
       Content.
