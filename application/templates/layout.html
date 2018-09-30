@@ -6,17 +6,29 @@
 </head>
 
 <body>
+
 {% if current_user.is_authenticated %}
 <p>
 Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
 </p>
 {% else %}
 <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+<a href="{{ url_for('auth_signup') }}">Rekisteröidy</a>
 {% endif %}
 <ul>
     <li><a href="{{ url_for('courses_index') }}">List courses</a></li>
     <li><a href="{{ url_for('courses_form') }}">Add a course</a></li>
 </ul>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 
 {% block body %}
     <p>
