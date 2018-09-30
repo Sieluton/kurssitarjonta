@@ -5,17 +5,19 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille. Jotta ilmoittau
 
 ### Toimintoja:
 
-* Kirjautuminen
-* Kurssin syöttö ja muokkaus
-* Kurssitarjonnan katselu ja varauksen teko
-* Varauslaskujen kirjoitus - niille jotka ovat sitä pyytäneet tai eivät ole viikon kuluessa vauksesta maksaneet varausmaksua. (valinnainen)
-* Ilmoittautuneiden luettelo
-* Varauksen peruutus yrityksen toimesta, jos maksua ei ole maksettu
-* Varauksen peruutus asiakkaan toimesta
-* Kurssin peruutus
+- [x] Rekisteröityminen
+- [x] Kirjautuminen
+- [x] Kurssin syöttö ja muokkaus
+- [x] Kurssitarjonnan katselu ja varauksen teko
+- [ ] Varauslaskujen kirjoitus - niille jotka ovat sitä pyytäneet tai eivät ole viikon kuluessa varauksesta maksaneet varausmaksua. (valinnainen)
+- [x] Ilmoittautuneiden luettelo
+- [ ] Varauksen peruutus yrityksen toimesta, jos maksua ei ole maksettu
+- [ ] Varauksen peruutus asiakkaan toimesta
+- [x] Kurssin peruutus
 
 ### Dokumentaatio:
 * [Käyttötarinat](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/user%20stories.md)
 * [Tietokantakaavion hahmotelma](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/tietokantakaavio.png)
 
 [Ohjelma Herokussa](https://kurssitarjonta.herokuapp.com/)
+Valmis testikäyttäjä nimellä "testi" ja salasana "testi". Uusia käyttäjiä voi rekisteröidä vapaasti.
