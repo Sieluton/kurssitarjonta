@@ -5,7 +5,7 @@ from application.courses.models import Course
 from application.courses.forms import CourseForm
 
 
-@app.route("/courses", methods=["GET"])
+@app.route("/courses/", methods=["GET"])
 def courses_index():
     return render_template("courses/list.html", courses=Course.query.all())
 

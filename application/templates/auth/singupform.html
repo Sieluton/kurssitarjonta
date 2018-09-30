@@ -1,67 +1,75 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    {{ error }}
-    <form method="POST" action="{{ url_for('auth_signup') }}">
-        <table>
-            <tr>
-                <td>
-                    {{ form.name.label }}
-                </td>
-                <td>
-                    {{ form.name }}
-                </td>
-                <td>
-                <ul>
-                    {% for error in form.name.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-            </tr>
-            <tr>
-                <td>
-                    {{ form.username.label }}
-                </td>
-                <td>
-                    {{ form.username }}
-                </td>
-                <td>
-                <ul>
-                    {% for error in form.username.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-            </tr>
-            <tr>
-                <td>
-                    {{ form.password.label }}
-                </td>
-                <td>
-                    {{ form.password }}
-                </td>
-                <td>
-                <ul>
-                    {% for error in form.password.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-            </tr>
-            <tr>
-                <td>
-                    {{ form.passwordConfirmation.label }}
-                </td>
-                <td>
-                    {{ form.passwordConfirmation }}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Sing up"/>
-                </td>
-            </tr>
-        </table>
-    </form>
+  {{ error }}
+  <form method="POST" action="{{ url_for('auth_signup') }}">
+    <table>
+      <div class="form-group">
+        <tr>
+          <td>
+            {{ form.name.label }}
+          </td>
+          <td>
+            {{ form.name(class="form-control form-control-lg") }}
+          </td>
+          <td>
+            <ul>
+              {% for error in form.name.errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </div>
+      <div class="form-group">
+        <tr>
+          <td>
+            {{ form.username.label }}
+          </td>
+          <td>
+            {{ form.username(class="form-control form-control-lg") }}
+          </td>
+          <td>
+            <ul>
+              {% for error in form.username.errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </div>
+      <div class="form-group">
+        <tr>
+          <td>
+            {{ form.password.label }}
+          </td>
+          <td>
+            {{ form.password(class="form-control form-control-lg") }}
+          </td>
+          <td>
+            <ul>
+              {% for error in form.password.errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </div>
+      <div class="form-group">
+        <tr>
+          <td>
+            {{ form.passwordConfirmation.label }}
+          </td>
+          <td>
+            {{ form.passwordConfirmation(class="form-control form-control-lg") }}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input class="btn btn-primary" type="submit" value="Sing up"/>
+          </td>
+        </tr>
+      </div>
+    </table>
+  </form>
 {% endblock %}
