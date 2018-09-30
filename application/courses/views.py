@@ -11,28 +11,28 @@ def courses_index():
 
 
 @app.route("/courses/new/")
-@login_required
+#@login_required
 def courses_form():
     return render_template("courses/new.html", form=CourseForm())
 
 
-@app.route("/courses/<course_id>/edit/", methods=["POST"])
-@login_required
+@app.route("/courses/<course_id>/edit/")
+#@login_required
 def courses_edit_form(course_id):
-    return render_template("courses/edit.html", course=Course.query.get(course_id))
+    return render_template("courses/edit.html", form=CourseForm(course_id),
+                           course=Course.query.get(course_id))
 
 
 @app.route("/courses/", methods=["POST"])
-@login_required
+#@login_required
 def courses_create():
     form = CourseForm(request.form)
 
     if not form.validate():
         return render_template("courses/new.html", form=form)
 
-    c = Course(form.name.data)
-    c.description = form.description.data
-    c.account_id = current_user
+    c = Course(form.name.data, form.description.data)
+    c.account_id = current_user.id
 
     db.session().add(c)
     db.session().commit()
@@ -40,12 +40,18 @@ def courses_create():
     return redirect(url_for("courses_index"))
 
 
-@app.route("/courses/", methods=["POST"])
-@login_required
-def courses_edit():
-    c = Course(request.form.get("name"), request.form.get("description"))
+@app.route("/courses/<course_id>/edit/", methods=["POST"])
+#@login_required
+def courses_edit(course_id):
+    c = Course.query.get(course_id)
+    form = CourseForm(request.form)
 
-    db.session().add(c)
+    if not form.validate():
+        return render_template("courses/edit.html", form=form)
+
+    c.name = form.name.data
+    c.description = form.description.data
+
     db.session().commit()
 
     return redirect(url_for("courses_index"))

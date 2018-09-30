@@ -1,9 +1,41 @@
 {% extends "layout.html" %}
-  
+
 {% block body %}
-<form method="POST" action="{{ url_for('courses_edit') }}">
-    <input type="text" name="name" value="{{ course.name }}"/>
-    <textarea rows="4" cols="50" name="description">{{ course.description }}</textarea>
-    <input type="submit" value="Edit course"/>
+<form method="POST" action="{{ url_for('courses_edit', course_id=course.id) }}">
+    <table>
+        <tr>
+            <td>
+                {{ form.name.label }}
+            </td>
+            <td>
+                {{ form.name(value = course.name) }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.description.label }}
+            </td>
+            <td>
+                {{ form.description }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Edit course"/>
+            </td>
+        </tr>
+    </table>
 </form>
+
+    <script>
+        var textarea = document.getElementById('description');
+        textarea.innerHTML = "{{ course.description }}"
+    </script>
 {% endblock %}
