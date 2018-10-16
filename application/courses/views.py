@@ -1,6 +1,6 @@
-from application import app, db
+from application import app, db, login_required
 from flask import redirect, render_template, request, url_for, flash
-from flask_login import login_required, current_user
+from flask_login import current_user
 from application.courses.models import Course
 from application.models import Reservation
 from application.courses.forms import CourseForm
@@ -12,20 +12,20 @@ def courses_index():
 
 
 @app.route("/courses/new/")
-@login_required
+@login_required(role="ADMIN")
 def courses_form():
     return render_template("courses/new.html", form=CourseForm())
 
 
 @app.route("/courses/<course_id>/edit/")
-@login_required
+@login_required(role="ADMIN")
 def courses_edit_form(course_id):
     return render_template("courses/edit.html", form=CourseForm(course_id),
                            course=Course.query.get(course_id))
 
 
 @app.route("/courses/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def courses_create():
     form = CourseForm(request.form)
 
@@ -42,7 +42,7 @@ def courses_create():
 
 
 @app.route("/courses/<course_id>/edit/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def courses_edit(course_id):
     c = Course.query.get(course_id)
     form = CourseForm(request.form)
@@ -71,7 +71,7 @@ def courses_reservation(course_id):
 
 
 @app.route("/courses/delete/<course_id>", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def courses_delete(course_id):
 
     Course.query.filter_by(id=course_id).delete()
