@@ -20,11 +20,19 @@
         {% endif %}
       </div>
       {% if current_user.is_authenticated %}
-        <div class="col">
-          <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
-            <input class="btn btn-primary" type="submit" value="Make reservation"/>
-          </form>
-        </div>
+        {% if course.user_already_in_course(course.id, current_user.id) %}
+          <div class="col">
+            <form method="POST" action="{{ url_for('courses_reservation_delete', course_id=course.id) }}">
+              <input class="btn btn-warning" type="submit" value="Remove reservation"/>
+            </form>
+          </div>
+        {% else %}
+          <div class="col">
+            <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
+              <input class="btn btn-primary" type="submit" value="Make reservation"/>
+            </form>
+          </div>
+        {% endif %}
         {% if "ADMIN" in current_user.roles() %}
           <div class="col">
             <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">

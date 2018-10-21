@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from application.reservations.models import Reservation
 from sqlalchemy.sql import text
 
 
@@ -36,3 +37,8 @@ class Course(Base):
             result.append({"name":row[0]})
 
         return result
+
+    @staticmethod
+    def user_already_in_course(course_id, user_id):
+        if Reservation.query.filter_by(course_id=course_id, account_id=user_id).count() > 0:
+            return True

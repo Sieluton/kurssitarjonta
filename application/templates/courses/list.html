@@ -14,11 +14,19 @@
         <td scope="row"><a class="nav-link" href="{{ url_for('courses_show', course_id=course.id) }}">{{ course.name }}</a></td>
         <td>{{ course.find_course_reservation_total(course.id) }}</td>
         {% if current_user.is_authenticated %}
-          <td>
-            <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
-              <input class="btn btn-primary" type="submit" value="Make reservation"/>
-            </form>
-          </td>
+          {% if course.user_already_in_course(course.id, current_user.id) %}
+            <td>
+              <form method="POST" action="{{ url_for('courses_reservation_delete', course_id=course.id) }}">
+                <input class="btn btn-warning" type="submit" value="Remove reservation"/>
+              </form>
+            </td>
+          {% else %}
+            <td>
+              <form method="POST" action="{{ url_for('courses_reservation', course_id=course.id) }}">
+                <input class="btn btn-primary" type="submit" value="Make reservation"/>
+              </form>
+            </td>
+          {% endif %}
           {% if "ADMIN" in current_user.roles() %}
             <td>
               <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
