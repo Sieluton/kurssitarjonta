@@ -25,17 +25,19 @@
             <input class="btn btn-primary" type="submit" value="Make reservation"/>
           </form>
         </div>
+        {% if "ADMIN" in current_user.roles() %}
+          <div class="col">
+            <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
+              <input class="btn btn-primary" type="submit" value="Edit course"/>
+            </form>
+          </div>
+          <div class="col">
+            <form method="POST" action="{{ url_for('courses_delete', course_id=course.id) }}">
+              <input class="btn btn-danger" type="submit" value="Delete course"/>
+            </form>
+          </div>
+        {% endif %}
       {% endif %}
-      <div class="col">
-        <form action="{{ url_for('courses_edit_form', course_id=course.id) }}">
-          <input class="btn btn-primary" type="submit" value="Edit course"/>
-        </form>
-      </div>
-      <div class="col">
-        <form method="POST" action="{{ url_for('courses_delete', course_id=course.id) }}">
-          <input class="btn btn-danger" type="submit" value="Delete course"/>
-        </form>
-      </div>
     </div>
 
   </div>
