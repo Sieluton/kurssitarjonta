@@ -2,7 +2,7 @@ from application import app, db, login_required
 from flask import redirect, render_template, request, url_for, flash
 from flask_login import current_user
 from application.courses.models import Course
-from application.models import Reservation
+from application.reservations.models import Reservation
 from application.courses.forms import CourseForm
 
 
@@ -42,7 +42,7 @@ def courses_create():
 
 
 @app.route("/courses/<course_id>/edit/", methods=["POST"])
-@login_required(role="ADMIN")
+@login_required()
 def courses_edit(course_id):
     c = Course.query.get(course_id)
     form = CourseForm(request.form)
@@ -59,7 +59,7 @@ def courses_edit(course_id):
 
 
 @app.route("/courses/reservation/<course_id>", methods=["POST"])
-@login_required
+@login_required()
 def courses_reservation(course_id):
     c = Course.query.get(course_id)
     u = current_user

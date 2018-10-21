@@ -9,6 +9,7 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    token = db.Column(db.Integer, default=0)
 
     courses = db.relationship("Course", secondary="reservations")
 
@@ -28,4 +29,6 @@ class User(Base):
         return True
 
     def roles(self):
-        return ["ADMIN"]
+        if self.token == 1:
+            return ["ADMIN"]
+        return ["ANY"]
