@@ -29,7 +29,7 @@ class Course(Base):
     def course_reservation_list(course_id):
         stmt = text("SELECT account.name, account.id FROM account "
                     "INNER JOIN reservations ON reservations.account_id = account.id "
-                    "WHERE reservations.course_id = :course_id GROUP BY account.name").params(course_id=course_id)
+                    "WHERE reservations.course_id = :course_id GROUP BY account.name, account.id").params(course_id=course_id)
         res = db.engine.execute(stmt)
 
         result = []
