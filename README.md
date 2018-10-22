@@ -1,7 +1,12 @@
 # Kurssitarjonta ja kurssipaikan varaus
-Kurssikeskus Opinahjo järjestää maksullisia kursseja eri aihepiireistä. Yhteen aihepiiriin liittyen pidetään vuodessa 1-20 kurssia. Sama kurssin voidaan vuoden aikana järjestää useaan kertaan. Kursseille voi osallistua keskimäärin 20 opiskelijaa, mutta isoja yli sadankin hengen kursseja on joskus ohjelmassa. Kustakin kurssista on laadittu esite, josta käyvät selville kurssin aika, kurssipaikka kurssin opettajat ja kurssin sisältö.
+Kurssikeskus Opinahjo järjestää maksullisia kursseja eri aihepiireistä.
+Yhteen aihepiiriin liittyen pidetään vuodessa 1-20 kurssia.
+Sama kurssin voidaan vuoden aikana järjestää useaan kertaan. Kursseille 
+voi osallistua keskimäärin 20 opiskelijaa, mutta isoja yli sadankin 
+hengen kursseja on joskus ohjelmassa. Kustakin kurssista on laadittu 
+esite, josta käyvät selville kurssin aika, kurssipaikka kurssin opettajat ja kurssin sisältö.
 
-Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille. Jotta ilmoittautuminen tulisi voimaan, on varaajan maksettava varausmaksu. Tätä varten varaajalle ilmoitetaan tilinumero ja varaukseen liittyvä viitenumero ja varausmaksun määrä. Jos varaaja erikseen pyytää laskua varausmaksusta, sellainen lähetetään. Varsinainen kurssimaksun laskutus ei kuulu tämän järjestelmän piiriin.
+Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille.
 
 ### Toimintoja:
 
@@ -9,10 +14,8 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille. Jotta ilmoittau
 - [x] Kirjautuminen
 - [x] Kurssin syöttö ja muokkaus
 - [x] Kurssitarjonnan katselu ja varauksen teko
-- [ ] Varauslaskujen kirjoitus - niille jotka ovat sitä pyytäneet tai eivät ole viikon kuluessa varauksesta maksaneet varausmaksua. (valinnainen)
 - [x] Ilmoittautuneiden luettelo
-- [ ] Varauksen peruutus yrityksen toimesta, jos maksua ei ole maksettu
-- [ ] Varauksen peruutus asiakkaan toimesta
+- [x] Varauksen peruutus omasta toimesta
 - [x] Kurssin peruutus
 
 ### Dokumentaatio:

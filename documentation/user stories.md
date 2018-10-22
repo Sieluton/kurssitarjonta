@@ -1,13 +1,13 @@
 # Käyttötarinat
 ## Käyttäjän tarinat
-* Käyttäjänä haluan kirjautua
-* Käyttähänä haluan nähdä kurssit
-* Käyttäjänä haluan ilmoittautua kurssille
-* Käyttäjänä haluan peruuttaa kurssi ilmoittautumisen
+- [x] Käyttäjänä haluan kirjautua
+- [x] Käyttäjänä haluan nähdä kurssit
+- [x] Käyttäjänä haluan ilmoittautua kurssille
+- [x] Käyttäjänä haluan peruuttaa kurssi ilmoittautumiseni
 
 ## Kurssien pitäjän tarinat
-* Kurssien pitäjänä haluan kirjautua
-* Kurssien pitäjänä haluan luoda kursseja
-* Kurssien pitäjänä haluan muokata kursseja
-* Kurssien pitäjänä haluan peruuttaa kursseja
-* Kurssien pitäjänä haluan nähdä kurssin osallistujat
+- [x] Kurssien pitäjänä haluan kirjautua
+- [x] Kurssien pitäjänä haluan luoda kursseja
+- [x] Kurssien pitäjänä haluan muokata kursseja
+- [x] Kurssien pitäjänä haluan peruuttaa kursseja
+- [x] Kurssien pitäjänä haluan nähdä kurssin osallistujat
