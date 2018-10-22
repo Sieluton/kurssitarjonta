@@ -42,7 +42,7 @@ def courses_create():
 
 
 @app.route("/courses/<course_id>/edit/", methods=["POST"])
-@login_required()
+@login_required(role="ADMIN")
 def courses_edit(course_id):
     c = Course.query.get(course_id)
     form = CourseForm(request.form)
@@ -75,6 +75,17 @@ def courses_reservation(course_id):
 def courses_reservation_delete(course_id):
 
     Reservation.query.filter_by(course_id=course_id, account_id=current_user.id).delete()
+    db.session.commit()
+
+    flash("Reservation deleted")
+    return redirect(url_for("courses_index"))
+
+
+@app.route("/courses/reservation/delete/<course_id>/<user_id>", methods=["POST"])
+@login_required(role="ADMIN")
+def courses_reservation_delete_admin(course_id, user_id):
+
+    Reservation.query.filter_by(course_id=course_id, account_id=user_id).delete()
     db.session.commit()
 
     flash("Reservation deleted")

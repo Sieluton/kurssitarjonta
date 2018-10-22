@@ -21,6 +21,13 @@ joka kirjaa käyttäjän ulos palvelusta.
 Kuka tahansa kirjautunut käyttäjä voi ilmoittautua kurssille kurssien listaus 
 sivulta tai kurssin omalta sivulta "Make reservation" nappia painamalla.
 
+## Kurssi ilmoittautumisen peruminen
+Kun kirjautunut käyttäjä katsoo kurssi listausta tai kurssin sivua johon ilmoittautunut 
+voi hän perua ilmoittautumisensa painamalla keltaista "Remove reservation" nappia. 
+Admin käyttäjä voi perua kursille ilmottautuneita henkilöitä kurssin sivulla 
+olevalta ilmoittautumislistalta painamalla keltaista "Remove reservation" nappia 
+halutun käyttäjän nimen vierestä.
+
 ## Kurssin luominen (vain admin)
 Uuden kurssin luominen onnistuu admin tasoiselta käyttäjältä sivun ylävasemmasta 
 painamalla "Add a course" linkkiä.

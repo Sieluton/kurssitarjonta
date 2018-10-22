@@ -5,7 +5,6 @@ Sama kurssin voidaan vuoden aikana järjestää useaan kertaan. Kursseille
 voi osallistua keskimäärin 20 opiskelijaa, mutta isoja yli sadankin 
 hengen kursseja on joskus ohjelmassa. Kustakin kurssista on laadittu 
 esite, josta käyvät selville kurssin aika, kurssipaikka kurssin opettajat ja kurssin sisältö.
-
 Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille.
 
 ### Toimintoja:
@@ -15,8 +14,12 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille.
 - [x] Kurssin syöttö ja muokkaus
 - [x] Kurssitarjonnan katselu ja varauksen teko
 - [x] Ilmoittautuneiden luettelo
-- [x] Varauksen peruutus omasta toimesta
+- [x] Ilmoittautumisen peruutus omasta toimesta
+- [x] Ilmoittautumisen peruutus adminin toimesta
 - [x] Kurssin peruutus
+
+### Puuttuvia toimintoja
+- Varauslaskujen kirjoitus ja siihen liittyvät toiminnot
 
 ### Dokumentaatio:
 * [Käyttötarinat](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/user%20stories.md)

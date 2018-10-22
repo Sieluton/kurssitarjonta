@@ -26,15 +26,15 @@ class Course(Base):
         return result
 
     @staticmethod
-    def course_reservation_name_list(course_id):
-        stmt = text("SELECT account.name FROM account "
+    def course_reservation_list(course_id):
+        stmt = text("SELECT account.name, account.id FROM account "
                     "INNER JOIN reservations ON reservations.account_id = account.id "
                     "WHERE reservations.course_id = :course_id GROUP BY account.name").params(course_id=course_id)
         res = db.engine.execute(stmt)
 
         result = []
         for row in res:
-            result.append({"name":row[0]})
+            result.append({"name":row[0], "id":row[1]})
 
         return result
 

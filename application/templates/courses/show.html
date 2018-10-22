@@ -10,13 +10,26 @@
   <div class="container">
     <div class="row">
       <div class="col-md-auto">
-        {% if course.course_reservation_name_list(course.id) %}
+        {% if course.course_reservation_list(course.id) %}
           <p class="font-weight-bold">List of reservations</p>
-          <ul class="list-group">
-            {% for name in course.course_reservation_name_list(course.id) %}
-              <li class="list-group-item">{{ name.name }}</li>
+          <table class="table table-hover">
+            {% for reservation in course.course_reservation_list(course.id) %}
+              <tr>
+              <td>{{ reservation.name }}</td>
+              {% if current_user.is_authenticated %}
+              {% if "ADMIN" in current_user.roles() %}
+              {% if course.user_already_in_course(course.id, reservation.id) %}
+                <td>
+                <form method="POST" action="{{ url_for('courses_reservation_delete_admin', course_id=course.id, user_id=reservation.id) }}">
+                  <input class="btn btn-warning" type="submit" value="Remove reservation"/>
+                </form>
+                </td>
+              {% endif %}
+              {% endif %}
+              {% endif %}
+              </tr>
             {% endfor %}
-          </ul>
+          </table>
         {% endif %}
       </div>
       {% if current_user.is_authenticated %}

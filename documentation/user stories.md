@@ -9,5 +9,6 @@
 - [x] Kurssien pitäjänä haluan kirjautua
 - [x] Kurssien pitäjänä haluan luoda kursseja
 - [x] Kurssien pitäjänä haluan muokata kursseja
+- [x] Kurssien pitäjänä haluan voida peruuttaa ilmoittautumisia
 - [x] Kurssien pitäjänä haluan peruuttaa kursseja
 - [x] Kurssien pitäjänä haluan nähdä kurssin osallistujat
