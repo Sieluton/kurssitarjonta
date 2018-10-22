@@ -1,7 +1,7 @@
 # Käyttöohje
 Ohjelmaa voi kokeilla [Herokussa](https://kurssitarjonta.herokuapp.com/).
-Admin käyttäjän tiedot Username:admin, Password:admin
-Normaalin käyttäjän tiedot Username:testi, Password:testi
+Admin käyttäjän tiedot Username:"admin", Password:"admin".
+Normaalin käyttäjän tiedot Username:"testi", Password:"testi".
 
 ## Uuden käyttäjän luominen
 Uuden käyttäjän voi luoda sivun oikeasta yläkulmasta löytyvällä "Sign up" 
