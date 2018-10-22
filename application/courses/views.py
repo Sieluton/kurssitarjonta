@@ -95,9 +95,9 @@ def courses_reservation_delete_admin(course_id, user_id):
 @app.route("/courses/delete/<course_id>", methods=["POST"])
 @login_required(role="ADMIN")
 def courses_delete(course_id):
-
-    Course.query.filter_by(id=course_id).delete()
+    
     Reservation.query.filter_by(course_id=course_id).delete()
+    Course.query.filter_by(id=course_id).delete()
     db.session.commit()
 
     flash("Course deleted")
