@@ -22,6 +22,7 @@ Kuka tahansa voi tutkia kurssitietoja ja ilmoittautua kurssille.
 * [Käyttötarinat](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/user%20stories.md)
 * [Tietokantakaavion hahmotelma](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/tietokantakaavio.pdf)
 * [Käyttöohje](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/kayttoohje.md)
+* [Asennusohje](https://github.com/Sieluton/kurssitarjonta/blob/master/documentation/asennusohje.md)
 
 [Ohjelma Herokussa](https://kurssitarjonta.herokuapp.com/)
 Valmis testikäyttäjä nimellä "testi" ja salasana "testi" sekä adminkäyttäjä 
